@@ -23,7 +23,7 @@ class Vandar
     }
 
 
-    public function request($amount, $callback, $mobile = null, $factorNumber = null, $description = null)
+    public function request($amount, $callback, $mobile = null, $factorNumber = null, $description = null, $valid_card_number = null)
     {
         $inputs = [
             'api_key' => $this->api,
@@ -32,6 +32,7 @@ class Vandar
             'mobile_number' => $mobile,
             'factorNumber' => $factorNumber,
             'description' => $description,
+            'valid_card_number' => $valid_card_number
         ];
         $result = $this->driver->request("api/v3/send", $inputs);
         if (isset($result['token'])) {
